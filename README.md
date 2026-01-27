@@ -196,4 +196,4 @@ Following these guidelines ensures:
 * Easier onboarding
 * Maintainable and scalable Shopify projects
 
-Happy coding 🚀
+Happy coding 🚀````
