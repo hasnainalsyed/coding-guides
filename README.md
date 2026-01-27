@@ -196,5 +196,3 @@ Following these guidelines ensures:
 * Maintainable and scalable Shopify projects
 
 Happy coding 🚀
-
-```
