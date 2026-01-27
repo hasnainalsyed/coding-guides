@@ -11,11 +11,11 @@ All contributors are expected to follow the guidelines outlined below.
 
 To maintain consistency and improve productivity, please install the following extensions:
 
-- **BEM Helper** – Write clean and maintainable CSS using BEM methodology
-- **GitLens** – Enhanced Git insights and collaboration
-- **Indent Rainbow** – Visualize indentation levels
-- **Shopify Liquid** – Syntax highlighting for Liquid files
-- **Shopify Liquid Templates & Snippets** – Predefined snippets for faster development
+- **BEM Helper** – Write clean and maintainable CSS using BEM methodology  
+- **GitLens** – Enhanced Git insights and collaboration  
+- **Indent Rainbow** – Visualize indentation levels. 
+- **Shopify Liquid** – Syntax highlighting for Liquid files  
+- **Shopify Liquid Templates & Snippets** – Predefined snippets for faster development  
 
 ---
 
