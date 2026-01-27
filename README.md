@@ -1,7 +1,8 @@
 ````md
 # Frontend & Shopify Development Guidelines
 
-This repository follows a standardized set of coding practices to ensure **consistency, performance, and maintainability** across all Shopify and frontend projects.
+This repository follows a standardized set of coding practices to ensure 
+*consistency, performance, and maintainability* across all Shopify and frontend projects.
 
 All contributors are expected to follow the guidelines outlined below.
 
