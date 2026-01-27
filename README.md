@@ -1,4 +1,3 @@
-md
 # Frontend & Shopify Development Guidelines
 
 This repository follows a standardized set of coding practices to ensure 
