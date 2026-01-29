@@ -1,7 +1,6 @@
 # Frontend & Shopify Development Guidelines
 
-This repository follows a standardized set of coding practices to ensure 
-**consistency, performance, and maintainability** across all Shopify and frontend projects.
+This repository follows a standardized set of coding practices to ensure **consistency, performance, accessibility, and maintainability** across all Shopify (Dawn-based) and frontend projects.
 
 All contributors are expected to follow the guidelines outlined below.
 
@@ -11,31 +10,34 @@ All contributors are expected to follow the guidelines outlined below.
 
 To maintain consistency and improve productivity, please install the following extensions:
 
-- **BEM Helper** – Write clean and maintainable CSS using BEM methodology  
-- **GitLens** – Enhanced Git insights and collaboration  
-- **Indent Rainbow** – Visualize indentation levels. 
-- **Shopify Liquid** – Syntax highlighting for Liquid files  
-- **Shopify Liquid Templates & Snippets** – Predefined snippets for faster development  
-- **Better Comments** - For improved commenting system  
-- **Liquid** - The essential vscode extension for Liquid  
+* **BEM Helper** – Write clean and maintainable CSS using BEM methodology
+* **GitLens** – Enhanced Git insights and collaboration
+* **Indent Rainbow** – Visualize indentation levels
+* **Shopify Liquid** – Syntax highlighting for Liquid files
+* **Shopify Liquid Templates & Snippets** – Predefined snippets for faster development
+* **Better Comments** – Improved comment readability
+* **Liquid** – Essential Liquid language support
 
 ---
 
 ## 📐 Indentation Rules
 
-- Use **2 spaces** for indentation across all files:
-  - HTML
-  - CSS
-  - JavaScript
-  - Liquid
+* Use **2 spaces** for indentation across all files:
+
+  * HTML
+  * CSS
+  * JavaScript
+  * Liquid
 
 ---
 
 ## 🏷️ Naming Conventions
 
-- **Variables & Functions:** `camelCase`
-- **JavaScript Classes:** `PascalCase`
-- **CSS / HTML Classes:** `bf-kebab-case` (preferred and mostly used **bf** is my prefix for the classes you can change this one)
+* **Variables & Functions:** `camelCase`
+* **JavaScript Classes / Custom Elements:** `PascalCase`
+* **CSS / HTML Classes:** `bf-kebab-case`
+
+  * `bf` is the project-specific prefix (can be changed per project)
 
 > Always use descriptive and meaningful names that clearly explain the purpose.
 
@@ -43,80 +45,115 @@ To maintain consistency and improve productivity, please install the following e
 
 ## ♻️ DRY Principle
 
-- Follow the **Don’t Repeat Yourself (DRY)** principle.
-- Avoid duplicated logic, markup, or styles.
-- Extract reusable code into functions or components when needed.
+* Follow the **Don’t Repeat Yourself (DRY)** principle
+* Avoid duplicated logic, markup, or styles
+* Extract reusable code into snippets, functions, or components
 
 ---
 
 ## ⚡ Code Optimization
 
-- Write **clean, efficient, and reusable code**
-- Avoid unnecessary calculations or repeated logic
-- Keep solutions simple and easy to understand by all developers
+* Write **clean, efficient, and reusable code**
+* Avoid unnecessary calculations or repeated logic
+* Prefer clarity over cleverness
+* Optimize for maintainability first, performance second
+
+---
+
+## 🧩 Liquid Guidelines
+
+### General Rules
+
+* Keep Liquid **simple and readable**
+* Prefer condition-based HTML rendering
+* Avoid heavy business logic in templates
+* Use snippets for reusable markup
+* Use section settings instead of hardcoded values
+
+### Formatting & Style
+
+* Use 2-space indentation
+* Use `snake_case` for Liquid variables
+* Close all Liquid tags explicitly
+
+```liquid
+{% if product.available %}
+  <p class="bf-product__status">In stock</p>
+{% endif %}
+```
 
 ---
 
 ## 🧠 JavaScript Guidelines
 
 ### General Rules
-- Write **simple and readable code**
-- Avoid unnecessary refactoring or over-engineering
-- Code should be easy for any team member to understand
+
+* Write **simple, readable, and predictable code**
+* Avoid over-engineering
+* Prefer vanilla JavaScript (no jQuery)
+* One responsibility per file or class
 
 ---
 
 ### DOM & Structure
-- Use **data attributes** for DOM selection
-- Use `querySelectorAll` with `forEach` for iteration
-- Define **global variables at the top** for shared configurations
-- Avoid repetitive structures — write dynamic, reusable code
+
+* Use **data attributes** for DOM selection
+* Use `querySelectorAll` with `forEach` for iteration
+* Define shared constants at the top of the file
+* Avoid duplicated DOM queries
 
 ---
 
 ### Styling Control
-- ❌ Do not use inline styles in JavaScript  
-- ✅ Add or remove CSS classes dynamically
+
+* ❌ Do not use inline styles in JavaScript
+* ✅ Toggle CSS classes for styling changes
 
 ---
 
 ### Code Modularity
-- Break logic into **small, single-purpose functions**
-- Keep functions focused and reusable
+
+* Break logic into **small, single-purpose functions**
+* Keep functions reusable and testable
 
 ---
 
-### JSON Handling
-- Use **single quotes (`'`)** for JSON keys
-- Be cautious with auto-formatters that convert quotes
-- Ensure functionality is not broken due to formatting changes
+### Data & JSON Handling
+
+* Use **double quotes (`"`)** for JSON keys and values (JSON standard)
+* Be cautious with auto-formatters
+* Validate JSON before committing
 
 ---
 
 ### API Calls
-Use `fetch` with appropriate HTTP methods:
-- `GET`
-- `POST`
-- `PUT`
 
-Handle responses and errors properly.
+* Use `fetch` with appropriate HTTP methods:
+  * `GET`
+  * `POST`
+  * `PUT`
+* Handle errors and loading states properly
+* Never expose sensitive tokens on the frontend
 
 ---
 
-## 🧩 Shopify Section Development
+## 🧩 Shopify Section Development (Dawn)
 
 ### Component-Based Structure
-Use **custom elements** for Shopify sections.
+
+* Use **custom elements** for interactive sections
+* One section = one component
 
 ```html
 <slider-component></slider-component>
-````
+```
 
 ---
 
 ### Stylesheets
 
-Each section must have its **own CSS file**.
+* Each section must have its **own CSS file**
+* Scope styles to the component
 
 ```liquid
 {{ 'component-slideshow.css' | asset_url | stylesheet_tag }}
@@ -126,7 +163,8 @@ Each section must have its **own CSS file**.
 
 ### JavaScript Files
 
-Each section must have a **dedicated JavaScript file**.
+* Each section must have a **dedicated JavaScript file**
+* Load scripts with `defer`
 
 ```liquid
 <script src="{{ 'slider-component.js' | asset_url }}" defer></script>
@@ -136,13 +174,13 @@ Each section must have a **dedicated JavaScript file**.
 
 ### Object-Oriented JavaScript
 
-Use OOP principles for each component.
+* Use OOP for section behavior
+* One class per component
 
 ```js
 class SliderComponent extends HTMLElement {
   constructor() {
     super();
-    // Component-specific logic
   }
 }
 
@@ -151,11 +189,18 @@ customElements.define('slider-component', SliderComponent);
 
 ---
 
+## ♿ Accessibility (Required)
+
+* Use semantic HTML
+* Always provide `alt` text for images
+* Maintain proper heading order
+* Use buttons for actions, links for navigation
+
+---
+
 ## 🔍 Pull Request (PR) Process
 
 ### Branch Naming
-
-Use descriptive branch names:
 
 * `feature/slider`
 * `fix/slider`
@@ -165,7 +210,7 @@ Use descriptive branch names:
 ### Review Requirements
 
 * At least **one approval** is required before merging
-* Assign a team member for PR review
+* Assign a reviewer explicitly
 
 ---
 
@@ -175,9 +220,9 @@ Use descriptive branch names:
 * Proper naming conventions
 * 2-space indentation enforced
 * No `console.log` statements
-* No sensitive data exposed (cookies, tokens, etc.)
-* Code is optimized and reusable
-* Improvements suggested where applicable
+* No sensitive data exposed
+* Code is reusable and optimized
+* Accessibility considered
 
 ---
 
