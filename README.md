@@ -16,6 +16,8 @@ To maintain consistency and improve productivity, please install the following e
 - **Indent Rainbow** – Visualize indentation levels. 
 - **Shopify Liquid** – Syntax highlighting for Liquid files  
 - **Shopify Liquid Templates & Snippets** – Predefined snippets for faster development  
+- **Better Comments** - For improved commenting system  
+- **Liquid** - The essential vscode extension for Liquid  
 
 ---
 
