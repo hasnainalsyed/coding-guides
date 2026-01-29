@@ -35,7 +35,7 @@ To maintain consistency and improve productivity, please install the following e
 
 - **Variables & Functions:** `camelCase`
 - **JavaScript Classes:** `PascalCase`
-- **CSS / HTML Classes:** `kebab-case` (preferred and mostly used)
+- **CSS / HTML Classes:** `bf-kebab-case` (preferred and mostly used **bf** is my prefix for the classes you can change this one)
 
 > Always use descriptive and meaningful names that clearly explain the purpose.
 
