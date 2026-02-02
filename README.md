@@ -77,7 +77,8 @@ To maintain consistency and improve productivity, please install the following e
 * Close all Liquid tags explicitly
 
 ```liquid
-{% if product.available %}
+{% assign product_available = product.available %}
+{% if product_available %}
   <p class="bf-product__status">In stock</p>
 {% endif %}
 ```
@@ -101,6 +102,19 @@ To maintain consistency and improve productivity, please install the following e
 * Use `querySelectorAll` with `forEach` for iteration
 * Define shared constants at the top of the file
 * Avoid duplicated DOM queries
+
+```js
+// Sample code
+const headings = document.querySelectorAll('[data-heading]');
+
+headings.forEach(heading => {
+  const level = heading.getAttribute('data-heading-level') || '1';
+  const tagName = `h${level}`;
+  const newHeading = document.createElement(tagName);
+  newHeading.innerHTML = heading.innerHTML;
+  heading.replaceWith(newHeading);
+});
+```
 
 ---
 
@@ -134,6 +148,26 @@ To maintain consistency and improve productivity, please install the following e
   * `PUT`
 * Handle errors and loading states properly
 * Never expose sensitive tokens on the frontend
+
+```js
+// Example fetch usage
+fetch('https://api.example.com/data', {
+  method: 'GET',
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer YOUR_TOKEN_HERE'
+  }
+}).then(response => {
+  if (!response.ok) {
+    throw new Error('Network response was not ok ' + response.statusText);
+  }
+  return response.json();
+}).then(data => {
+  console.log(data);
+}).catch(error => {
+  console.error('There was a problem with the fetch operation:', error);
+});
+```
 
 ---
 
